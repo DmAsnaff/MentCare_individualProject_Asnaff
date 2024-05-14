@@ -6,12 +6,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 public class Home extends AppCompatActivity {
 
     ImageButton homebutton,locationbutton,historybutton,profilebutton, carebutton;
-
+    Button questionbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,7 @@ public class Home extends AppCompatActivity {
         locationbutton = findViewById(R.id.locationbutton);
         historybutton = findViewById(R.id.historybutton);
         profilebutton = findViewById(R.id.profilebutton);
-
+        questionbutton = findViewById(R.id.questionbutton);
 
 
         homebutton.setOnClickListener(new View.OnClickListener() {
@@ -76,6 +77,13 @@ public class Home extends AppCompatActivity {
 
 
 
+        questionbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, dassDescription.class);
+                startActivity(intent);
+            }
 
+        });
     }
 }

@@ -11,7 +11,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="160dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="572dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +48,121 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="200dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <Button
+            android:id="@+id/buttonhelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="95dp"
+            android:backgroundTint="@color/highlight"
+            android:text="HELP !" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Are you feeling anything critical ?"
+            android:textColor="@color/text"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textView333"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:text="Click for immediate Hotline!"
+            android:textColor="@color/text"
+
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="380dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        android:alpha="1"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/questionbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="110dp"
+            android:backgroundTint="@color/Button1"
+            android:text="Start Questionnaires"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/dasstext"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:text="DASS - 21"
+
+            android:textColor="@color/text"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/dasstext1"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="45dp"
+            android:text=" A set of self-report questionnaires designed to measure the emotional states of depression, anxiety, and stress. "
+            android:textColor="@color/text"
+            android:textSize="14sp"
+             />
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="195dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="-135dp"
+        android:layout_marginEnd="-50dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:srcCompat="@drawable/sad1" />
+
+    <androidx.cardview.widget.CardView
         android:layout_width="420dp"
-        android:layout_height="72dp"
+        android:layout_height="64dp"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -145,7 +258,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:gravity="center"
-                android:textSize="13sp"
+                android:textSize="11sp"
                 android:textColor="@color/Button2"
                 android:layout_weight="1"
                 android:text=" Home" />
@@ -156,7 +269,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:gravity="center"
-                android:textSize="13sp"
+                android:textSize="11sp"
                 android:textColor="@color/Button2"
                 android:layout_weight="1"
                 android:text="SelfCare" />
@@ -167,7 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="45dp"
                 android:gravity="center"
-                android:textSize="13sp"
+                android:textSize="11sp"
                 android:textColor="@color/Button2"
                 android:layout_weight="1"
                 android:text="NearBy" />
@@ -179,7 +292,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="45dp"
                 android:gravity="center"
-                android:textSize="13sp"
+                android:textSize="11sp"
                 android:textColor="@color/Button2"
                 android:text="History" />
 
@@ -190,7 +303,7 @@
                 android:layout_marginTop="45dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:textSize="13sp"
+                android:textSize="11sp"
                 android:textColor="@color/Button2"
                 android:text="Profile" />
         </LinearLayout>

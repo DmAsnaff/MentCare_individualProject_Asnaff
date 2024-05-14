@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dassDescription"
+    android:background="@color/bg">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="420dp"
+        android:layout_height="64dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <ImageButton
+                android:id="@+id/homebutton"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:contentDescription="Home"
+                android:scaleType="fitCenter"
+                android:tint="@color/Button2"
+                app:srcCompat="@drawable/baseline_home_24" />
+
+            <ImageButton
+                android:id="@+id/carebutton"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+
+                android:contentDescription="Selfcare"
+                android:scaleType="fitCenter"
+                android:tint="@color/Button2"
+
+                app:srcCompat="@drawable/baseline_self_improvement_24" />
+
+            <ImageButton
+                android:id="@+id/locationbutton"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+
+                android:contentDescription="Location"
+                android:scaleType="fitCenter"
+                android:tint="@color/Button2"
+
+                app:srcCompat="@drawable/baseline_location_pin_24" />
+
+            <ImageButton
+                android:id="@+id/historybutton"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+                android:background="#00FFFFFF"
+                android:contentDescription="History"
+
+                android:scaleType="fitCenter"
+                android:tint="@color/Button2"
+
+                app:srcCompat="@drawable/baseline_work_history_24" />
+
+            <ImageButton
+                android:id="@+id/profilebutton"
+                android:layout_width="0dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="13dp"
+                android:layout_weight="1"
+
+                android:background="#00FFFFFF"
+                android:contentDescription="profile"
+                android:scaleType="fitCenter"
+                android:tint="@color/Button2"
+
+                app:srcCompat="@drawable/baseline_person_24" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text=" Home"
+                android:textColor="@color/Button2"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="SelfCare"
+                android:textColor="@color/Button2"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="NearBy"
+                android:textColor="@color/Button2"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="History"
+                android:textColor="@color/Button2"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Profile"
+                android:textColor="@color/Button2"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/logon" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView52pubu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text="Questionnaire"
+                android:textColor="@color/Button2"
+                android:textSize="30sp"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/textView62pubu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:text=" Description"
+                android:textColor="#7F6877"
+
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="420dp"
+
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="-65dp"
+        app:cardBackgroundColor="@color/white"
+        android:alpha=".7"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:text="Please read each statement and circle a number 0, 1, 2 or 3 which indicates how much the statement
+applied to you over the past week. There are no right or wrong answers. Do not spend too much
+time on any statement.
+The rating scale is as follows:
+0 Did not apply to me at all
+1 Applied to me to some degree, or some of the time
+2 Applied to me to a considerable degree or a good part of time
+3 Applied to me very much or most of the time"
+            android:textSize="16sp"/>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
