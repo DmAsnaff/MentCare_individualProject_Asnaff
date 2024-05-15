@@ -227,14 +227,41 @@
             android:layout_weight="1"
             android:text="Please read each statement and circle a number 0, 1, 2 or 3 which indicates how much the statement
 applied to you over the past week. There are no right or wrong answers. Do not spend too much
-time on any statement.
-The rating scale is as follows:
-0 Did not apply to me at all
-1 Applied to me to some degree, or some of the time
-2 Applied to me to a considerable degree or a good part of time
-3 Applied to me very much or most of the time"
+time on any statement."
+
             android:textSize="16sp"/>
 
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="350dp"
+            android:backgroundTint="@color/Button1"
+            android:text="Attempt Quiz"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="150dp"
+            android:layout_weight="1"
+            android:text=" The rating scale is as follows:\n\n
+► 0 Did not apply to me at all\n
+► 1 Applied to me to some degree, or some of the time\n
+► 2 Applied to me to a considerable degree or a good part of time\n
+► 3 Applied to me very much or most of the time"
+
+            android:textSize="16sp"/>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
