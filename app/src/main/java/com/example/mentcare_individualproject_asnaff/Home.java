@@ -51,7 +51,7 @@ public class Home extends AppCompatActivity {
         locationbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this, MainActivity.class);
+                Intent intent = new Intent(Home.this, MapsActivity.class);
                 startActivity(intent);
             }
 
