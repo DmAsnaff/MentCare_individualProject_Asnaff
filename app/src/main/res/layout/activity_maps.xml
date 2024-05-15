@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapActivity">
+    tools:context=".MapsActivity"
+    android:background="@color/bg">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -18,9 +19,13 @@
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Psychiatric clinic near me"
         android:layout_below="@+id/titleTextView"
-        android:layout_margin="16dp"/>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edittextbg"
+        android:queryHint="Psychiatric clinic near me" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"

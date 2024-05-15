@@ -9,12 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class Home extends AppCompatActivity {
 
     ImageButton homebutton,locationbutton,historybutton,profilebutton, carebutton;
     Button questionbutton,buttonhelp;
-
+    TextView subtitleTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ public class Home extends AppCompatActivity {
         profilebutton = findViewById(R.id.profilebutton);
         questionbutton = findViewById(R.id.questionbutton);
         buttonhelp = findViewById(R.id.buttonhelp);
-
+        subtitleTextView = findViewById(R.id.subtitleTextView);
         homebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,5 +96,11 @@ public class Home extends AppCompatActivity {
                 startActivity(dialIntent);
             }
         });
+
+        DBHandler dbHandler = new DBHandler(this);
+        String userName = dbHandler.getUserName();
+
+        subtitleTextView.setText(userName);
+
     }
 }

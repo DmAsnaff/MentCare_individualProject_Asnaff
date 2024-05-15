@@ -19,6 +19,12 @@
         android:theme="@style/Theme.MentCare_individualProject_Asnaff"
         tools:targetApi="31">
         <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".signin"
+            android:exported="false" />
+        <activity
             android:name=".selfCare"
             android:exported="false" />
         <!--
@@ -34,7 +40,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCmW3EmCo-tW9qU2tGusZ2woTZiEjQbsAs" />
+            android:value="AIzaSyBpIdrM1RQUU8cU0K-0GiwXh7KMYCVjx6I" />
 
         <activity
             android:name=".MapsActivity"

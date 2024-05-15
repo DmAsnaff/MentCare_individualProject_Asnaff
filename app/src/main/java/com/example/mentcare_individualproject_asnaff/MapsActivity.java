@@ -1,6 +1,7 @@
 package com.example.mentcare_individualproject_asnaff;
 
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.Manifest;
@@ -49,12 +50,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         mapView = findViewById(R.id.mapView);
         searchView = findViewById(R.id.searchView);
+        getWindow().setStatusBarColor(Color.parseColor("#54434E"));
 
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
         // Initialize Places
-        Places.initialize(getApplicationContext(), "AIzaSyCmW3EmCo-tW9qU2tGusZ2woTZiEjQbsAs");
+        Places.initialize(getApplicationContext(), "AIzaSyBpIdrM1RQUU8cU0K-0GiwXh7KMYCVjx6I");
         placesClient = Places.createClient(this);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
