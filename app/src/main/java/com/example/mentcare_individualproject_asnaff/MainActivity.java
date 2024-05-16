@@ -9,7 +9,7 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final long  SPLASH_TIMER = 100;
+    private static final long  SPLASH_TIMER = 2000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

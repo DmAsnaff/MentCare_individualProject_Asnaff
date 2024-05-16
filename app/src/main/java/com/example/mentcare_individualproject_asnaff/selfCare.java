@@ -2,6 +2,7 @@ package com.example.mentcare_individualproject_asnaff;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.EditText;
 import java.text.SimpleDateFormat;
@@ -14,7 +15,7 @@ public class selfCare extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_self_care);
 
-
+        getWindow().setStatusBarColor(Color.parseColor("#54434E"));
 
         EditText editTextDate = findViewById(R.id.editTextDate);
 
