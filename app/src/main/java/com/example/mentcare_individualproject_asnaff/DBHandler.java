@@ -25,10 +25,16 @@ public class DBHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
         MyDatabase.execSQL("create Table users(name TEXT,email TEXT primary key, password TEXT)");
+
+        MyDatabase.execSQL("create Table user_mood (id INTEGER PRIMARY KEY AUTOINCREMENT, user_email TEXT, mood TEXT, date_selected DATE)");
     }
+
+
     @Override
     public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
         MyDatabase.execSQL("drop Table if exists users");
+
+        MyDatabase.execSQL("drop Table if exists user_mood");
 
     }
 
@@ -46,6 +52,21 @@ public class DBHandler extends SQLiteOpenHelper {
             return true;
         }
     }
+    public Boolean insertMood(String userEmail, String mood, String dateSelected) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("user_email", userEmail);
+        contentValues.put("mood", mood);
+        contentValues.put("date_selected", dateSelected);
+
+        long result = MyDatabase.insert("user_mood", null, contentValues);
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public Boolean checkEmail(String email){
         SQLiteDatabase MyDatabase = this.getWritableDatabase();
         Cursor cursor = MyDatabase.rawQuery("Select * from users where email = ?", new String[]{email});
@@ -65,17 +86,20 @@ public class DBHandler extends SQLiteOpenHelper {
         }
     }
 
-    public String getUserName(){
-        String name = "";
-        SQLiteDatabase MyDatabase = this.getReadableDatabase();
-        Cursor cursor = MyDatabase.rawQuery("SELECT name FROM users", null);
-        if (cursor.moveToFirst()) {
-            name = cursor.getString(cursor.getColumnIndex("name"));
-        }
-        cursor.close();
-        return name;
-    }
 
+
+    public String getUserNameByEmail(String email) {
+        SQLiteDatabase MyDatabase = this.getReadableDatabase();
+        Cursor cursor = MyDatabase.rawQuery("Select name from users where email = ?", new String[]{email});
+        if (cursor.moveToFirst()) {
+            String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+            cursor.close();
+            return name;
+        } else {
+            cursor.close();
+            return "User";
+        }
+    }
 
 
 }

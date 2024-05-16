@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.mentcare_individualproject_asnaff.databinding.ActivityLoginBinding;
@@ -13,6 +14,7 @@ import com.example.mentcare_individualproject_asnaff.databinding.ActivityLoginBi
 public class login extends AppCompatActivity {
     ActivityLoginBinding binding;
     DBHandler dbHandler;
+    EditText emailEditText, passwordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,8 @@ public class login extends AppCompatActivity {
                     if(checkCredentials == true){
                         Toast.makeText(login.this, "Login Successfully!", Toast.LENGTH_SHORT).show();
                         Intent intent  = new Intent(getApplicationContext(), Home.class);
+                        intent.putExtra("USER_EMAIL", email);
+
                         startActivity(intent);
                     }else{
                         Toast.makeText(login.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
