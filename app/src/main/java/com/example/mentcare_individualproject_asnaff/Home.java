@@ -1,7 +1,6 @@
 package com.example.mentcare_individualproject_asnaff;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -12,14 +11,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
+
 public class Home extends AppCompatActivity {
 
    // private String userEmail; // Assuming this is set somewhere in your activity
 
     DBHandler dbHandler;
+    private String user_email;
 
     ImageButton   terribleImageView, badImageView, okayImageView,
             goodImageView, greatImageView, homebutton,
@@ -34,6 +35,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         getWindow().setStatusBarColor(Color.parseColor("#54434E"));
 
+        dbHandler = new DBHandler(this);
 
 
         terribleImageView = findViewById(R.id.terribleImageView);
@@ -123,21 +125,33 @@ public class Home extends AppCompatActivity {
         historybutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this, MainActivity.class);
+                Intent intent = new Intent(Home.this, Home.class);
                 startActivity(intent);
             }
 
         });
 
+//        profilebutton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = getIntent();
+//                String user_email = intent.getStringExtra("USER_EMAIL");
+//                Intent intentProfile = new Intent(Home.this, profile.class);
+//                intent.putExtra("USER_EMAIL", user_email);
+//                startActivity(intentProfile);
+//            }
+//
+//        });
         profilebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this, MainActivity.class);
-                startActivity(intent);
+                // When transitioning to the Profile activity
+                String userEmail = getIntent().getStringExtra("USER_EMAIL");
+                Intent profileIntent = new Intent(Home.this, profile.class);
+                profileIntent.putExtra("USER_EMAIL", userEmail);
+                startActivity(profileIntent);
             }
-
         });
-
 
 
         questionbutton.setOnClickListener(new View.OnClickListener() {
@@ -159,33 +173,54 @@ public class Home extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        String userEmail = intent.getStringExtra("USER_EMAIL");
+        String user_email = intent.getStringExtra("USER_EMAIL");
 
 
-        DBHandler dbHandler = new DBHandler(this);
-        String userName = dbHandler.getUserNameByEmail(userEmail);
+//        DBHandler dbHandler = new DBHandler(this);
+        String userName = dbHandler.getUserNameByEmail(user_email);
 
         subtitleTextView.setText(userName);
 
     }
 
-    private void saveMoodToDatabase(String mood) {
-        // Get the current date
-
-        String dateSelected = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-
-        Intent intent = getIntent();
-        String userEmail = intent.getStringExtra("USER_EMAIL");
-        // Save the selected mood to the database
-        boolean isInserted = dbHandler.insertMood(userEmail, mood, dateSelected);
-        if (isInserted) {
-            Toast.makeText(Home.this, "Mood Updated Successfully!", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(Home.this, "Mood Update Failed!", Toast.LENGTH_SHORT).show();
-        }
+//    private void saveMoodToDatabase(String mood) {
+//        Intent intent = getIntent();
+//        String userEmail = intent.getStringExtra("USER_EMAIL");
+////        String dateSelected = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+//        String dateSelected = "2000-01-01";
+//        if (userEmail != null) {
+//            boolean isInserted = dbHandler.insertMood(userEmail, mood, dateSelected);
+//            if (isInserted) {
+//                Toast.makeText(Home.this, "Mood Updated Successfully!", Toast.LENGTH_SHORT).show();
+//            } else {
+//                Toast.makeText(Home.this, "Mood Update Failed!", Toast.LENGTH_SHORT).show();
+//            }
+//        } else {
+//            Toast.makeText(Home.this, "User email not available!", Toast.LENGTH_SHORT).show();
+//        }
+//    }
+private void saveMoodToDatabase(String mood) {
+    if (dbHandler == null) {
+        dbHandler = new DBHandler(this);
     }
 
+    // Get the current date
+    String dateSelected = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
+    Intent intent = getIntent();
+    String userEmail = intent.getStringExtra("USER_EMAIL");
 
+    if (userEmail == null || userEmail.isEmpty()) {
+        Toast.makeText(Home.this, "User email not found!", Toast.LENGTH_SHORT).show();
+        return;
+    }
 
+    // Save the selected mood to the database
+    boolean isInserted = dbHandler.insertMood(userEmail, mood, dateSelected);
+    if (isInserted) {
+        Toast.makeText(Home.this, "Mood Updated Successfully!", Toast.LENGTH_SHORT).show();
+    } else {
+        Toast.makeText(Home.this, "Mood Update Failed!", Toast.LENGTH_SHORT).show();
+    }
+}
 }

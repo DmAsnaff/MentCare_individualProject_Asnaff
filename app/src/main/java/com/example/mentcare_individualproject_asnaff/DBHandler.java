@@ -17,10 +17,15 @@ public class DBHandler extends SQLiteOpenHelper {
 
     public static final String databaseName = "mentcare.db";
 
-    DBHandler(@Nullable Context context) {
-        super(context, "mentcare.db", null, 1);
-    }
+//    DBHandler(@Nullable Context context) {
+//        super(context, "mentcare.db", null, 1);
+//    }
+public static final int DATABASE_VERSION = 2;
 
+    public DBHandler(@Nullable Context context) {
+        super(context, "mentcare.db", null, DATABASE_VERSION);
+        this.context = context;
+    }
 
     @Override
     public void onCreate(SQLiteDatabase MyDatabase) {
@@ -30,12 +35,19 @@ public class DBHandler extends SQLiteOpenHelper {
     }
 
 
+//    @Override
+//    public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
+//        MyDatabase.execSQL("drop Table if exists users");
+//
+//        MyDatabase.execSQL("drop Table if exists user_mood");
+//
+//    }
+
     @Override
-    public void onUpgrade(SQLiteDatabase MyDatabase, int i, int i1) {
-        MyDatabase.execSQL("drop Table if exists users");
-
-        MyDatabase.execSQL("drop Table if exists user_mood");
-
+    public void onUpgrade(SQLiteDatabase MyDatabase, int oldVersion, int newVersion) {
+        MyDatabase.execSQL("DROP TABLE IF EXISTS users");
+        MyDatabase.execSQL("DROP TABLE IF EXISTS user_mood");
+//        onCreate(MyDatabase);
     }
 
     public Boolean insertData(String name,String email, String password){
@@ -59,11 +71,12 @@ public class DBHandler extends SQLiteOpenHelper {
         contentValues.put("mood", mood);
         contentValues.put("date_selected", dateSelected);
 
-        long result = MyDatabase.insert("user_mood", null, contentValues);
-        if (result == -1) {
+        try {
+            long result = MyDatabase.insert("user_mood", null, contentValues);
+            return result != -1;
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
-        } else {
-            return true;
         }
     }
 
@@ -101,5 +114,28 @@ public class DBHandler extends SQLiteOpenHelper {
         }
     }
 
+    public boolean updateUser(String newName, String newEmail, String oldEmail) {
+        SQLiteDatabase MyDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("name", newName);
+        contentValues.put("email", newEmail); // Update email
+
+        int result = MyDatabase.update("users", contentValues, "email = ?", new String[]{oldEmail});
+        return result > 0;
+    }
+
+
+    public User getUserByEmail(String email) {
+        SQLiteDatabase MyDatabase = this.getReadableDatabase();
+        Cursor cursor = MyDatabase.rawQuery("SELECT * FROM users WHERE email = ?", new String[]{email});
+        if (cursor.moveToFirst()) {
+            String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
+            cursor.close();
+            return new User(name, email);
+        } else {
+            cursor.close();
+            return null;
+        }
+    }
 
 }
