@@ -1,68 +1,73 @@
 package com.example.mentcare_individualproject_asnaff;
 
+import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.Manifest;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import android.util.Log;
-import android.widget.SearchView;
-
-import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
-import com.google.android.libraries.places.api.model.PlaceLikelihood;
+import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
-import com.google.android.libraries.places.api.model.AutocompletePrediction;
-import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
-import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
-import com.google.android.libraries.places.api.model.Place;
+
 import java.util.Arrays;
 import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private MapView mapView;
     private GoogleMap gMap;
     private SearchView searchView;
     private PlacesClient placesClient;
+    private FusedLocationProviderClient fusedLocationClient;
     private static final String TAG = "MapsActivity";
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1001;
+    private static final int PROXIMITY_RADIUS = 10000; // 10 km
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        mapView = findViewById(R.id.mapView);
         searchView = findViewById(R.id.searchView);
         getWindow().setStatusBarColor(Color.parseColor("#54434E"));
-
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
 
         // Initialize Places
         Places.initialize(getApplicationContext(), "AIzaSyBpIdrM1RQUU8cU0K-0GiwXh7KMYCVjx6I");
         placesClient = Places.createClient(this);
 
+        // Initialize FusedLocationProviderClient
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        // Add map fragment programmatically
+        SupportMapFragment mapFragment = SupportMapFragment.newInstance();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.mapContainer, mapFragment)
+                .commit();
+        mapFragment.getMapAsync(this);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                searchLocation(query);
+                String location = query + " psychiatric clinic";
+                searchNearbyPsychiatricClinics(location);
                 return false;
             }
 
@@ -71,78 +76,75 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 return false;
             }
         });
-
-        searchView.setQueryHint("Psychiatric clinic near me");
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1001) {
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                searchLocation("Psychiatric clinic near me");
+                getCurrentLocationAndSearchClinics();
+            } else {
+                Toast.makeText(this, "Location permission is required to show nearby clinics", Toast.LENGTH_LONG).show();
             }
         }
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         gMap = googleMap;
-        // Default location: Psychiatric clinic near user
-        LatLng defaultLocation = new LatLng(-33.8688, 151.2093); // Example coordinates (Sydney)
-        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(defaultLocation, 15));
-        gMap.addMarker(new MarkerOptions().position(defaultLocation).title("Psychiatric Clinic"));
+        getCurrentLocationAndSearchClinics();
     }
 
-    private void searchLocation(String query) {
-        // Use Places API to search for the location
-        // This example uses a simple implementation, you may need to customize it based on your needs
-        List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
-        FindCurrentPlaceRequest request = FindCurrentPlaceRequest.builder(placeFields).build();
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            Task<FindCurrentPlaceResponse> placeResponse = placesClient.findCurrentPlace(request);
-            placeResponse.addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    FindCurrentPlaceResponse response = task.getResult();
-                    for (PlaceLikelihood placeLikelihood : response.getPlaceLikelihoods()) {
-                        Place place = placeLikelihood.getPlace();
-                        gMap.addMarker(new MarkerOptions().position(place.getLatLng()).title(place.getName()));
-                        gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(place.getLatLng(), 15));
-                    }
-                } else {
-                    Exception exception = task.getException();
-                    if (exception instanceof ApiException) {
-                        ApiException apiException = (ApiException) exception;
-                        Log.e(TAG, "Place not found: " + apiException.getStatusCode());
-                    }
-                }
-            });
-        } else {
-            // Request location permission
+    private void getCurrentLocationAndSearchClinics() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+            return;
         }
+
+        fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
+            if (location != null) {
+                LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+                gMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15));
+//                searchNearbyPsychiatricClinics();
+            }
+        });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        mapView.onResume();
+    private void searchNearbyPsychiatricClinics(String location) {
+        if (gMap == null) return;
+
+        gMap.clear(); // Clear previous markers
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+            return;
+        }
+
+        fusedLocationClient.getLastLocation().addOnSuccessListener(this, currentLocation -> {
+            if (currentLocation != null) {
+                LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+
+                String url = getUrl(latLng.latitude, latLng.longitude, location);
+                Object[] DataTransfer = new Object[2];
+                DataTransfer[0] = gMap;
+                DataTransfer[1] = url;
+
+                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+                getNearbyPlacesData.execute(DataTransfer);
+                Toast.makeText(MapsActivity.this, "Searching for nearby " + location, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mapView.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapView.onDestroy();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapView.onLowMemory();
+    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+        StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlacesUrl.append("location=").append(latitude).append(",").append(longitude);
+        googlePlacesUrl.append("&radius=").append(PROXIMITY_RADIUS);
+        googlePlacesUrl.append("&type=health");
+        googlePlacesUrl.append("&keyword=").append(nearbyPlace);
+        googlePlacesUrl.append("&sensor=true");
+        googlePlacesUrl.append("&key=" + "AIzaSyBpIdrM1RQUU8cU0K-0GiwXh7KMYCVjx6I");
+        return googlePlacesUrl.toString();
     }
 }

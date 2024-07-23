@@ -1,1081 +1,972 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".quiz">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <!-- Question 1 -->
+        <TextView
+            android:id="@+id/question1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:text="1 (s). I found it hard to wind down"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-            <!-- Question 1 -->
-            <TextView
-                android:id="@+id/question1"
+        <RadioGroup
+            android:id="@+id/answerGroup1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer1_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1 (s). I found it hard to wind down"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer1_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer1_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer1_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer1_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer1_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-            <!-- Question 2 -->
-            <TextView
-                android:id="@+id/question2"
+            <RadioButton
+                android:id="@+id/answer1_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 (a). I was aware of dryness of my mouth"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer1_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer2_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 2 -->
+        <TextView
+            android:id="@+id/question2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 (a). I was aware of dryness of my mouth"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer2_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer2_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer2_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-            <!-- Question 3 -->
-            <TextView
-                android:id="@+id/question3"
+            <RadioButton
+                android:id="@+id/answer2_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3 (d). I couldn’t seem to experience any positive feeling at all "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer2_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer3_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer3_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer3_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer3_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-            <!-- Question 4 -->
-            <TextView
-                android:id="@+id/question4"
+            <RadioButton
+                android:id="@+id/answer2_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4 (a). I experienced breathing difficulty (e.g. excessively rapid breathing,
-breathlessness in the absence of physical exertion)"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer2_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer4_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 3 -->
+        <TextView
+            android:id="@+id/question3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3 (d). I couldn’t seem to experience any positive feeling at all"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer4_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer4_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer4_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 5 -->
-            <TextView
-                android:id="@+id/question5"
+            <RadioButton
+                android:id="@+id/answer3_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text= "5 (d). I found it difficult to work up the initiative to do things"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer3_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer5_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer5_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer5_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer5_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-            <!-- Question 6 -->
-            <TextView
-                android:id="@+id/question6"
+            <RadioButton
+                android:id="@+id/answer3_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text= "6 (s). I tended to over-react to situations"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer3_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer6_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Add similar blocks for questions 4 to 21 -->
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer6_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <!-- Question 4 -->
+        <TextView
+            android:id="@+id/question4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 (a). I experienced breathing difficulty (e.g. excessively rapid breathing, breathlessness in the absence of physical exertion)"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer6_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer6_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 7 -->
-            <TextView
-                android:id="@+id/question7"
+            <RadioButton
+                android:id="@+id/answer4_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="7 (a). I experienced trembling (e.g. in the hands) "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer4_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer7_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer7_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer7_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer7_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-            <!-- Question 8 -->
-            <TextView
-                android:id="@+id/question8"
+            <RadioButton
+                android:id="@+id/answer4_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8 (s). I felt that I was using a lot of nervous energy"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer4_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer8_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 5 -->
+        <TextView
+            android:id="@+id/question5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5 (d). I found it difficult to work up the initiative to do things"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer8_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer8_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer8_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 9 -->
-            <TextView
-                android:id="@+id/question9"
+            <RadioButton
+                android:id="@+id/answer5_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="9 (a). I was worried about situations in which I might panic and make a fool
-of myself"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer5_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer9_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer9_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer9_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer9_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 10 -->
-            <TextView
-                android:id="@+id/question10"
+            <RadioButton
+                android:id="@+id/answer5_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10 (d). I felt that I had nothing to look forward to"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer5_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer10_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 6 -->
+        <TextView
+            android:id="@+id/question6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 (s). I tended to over-react to situations"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer10_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer10_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer10_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 11 -->
-            <TextView
-                android:id="@+id/question11"
+            <RadioButton
+                android:id="@+id/answer6_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11 (s). I found myself getting agitated "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer6_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer11_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer11_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer11_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer11_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 12 -->
-            <TextView
-                android:id="@+id/question12"
+            <RadioButton
+                android:id="@+id/answer6_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12 (s). I found it difficult to relax"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer6_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer12_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 7 -->
+        <TextView
+            android:id="@+id/question7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7 (a). I experienced trembling (e.g. in the hands)"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer12_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer12_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer12_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-            <!-- Question 13 -->
-            <TextView
-                android:id="@+id/question13"
+            <RadioButton
+                android:id="@+id/answer7_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="13 (d). I felt down-hearted and blue "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer7_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer13_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer13_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer13_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer13_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 14 -->
-            <TextView
-                android:id="@+id/question14"
+            <RadioButton
+                android:id="@+id/answer7_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="14 (s). I was intolerant of anything that kept me from getting on with what I
-was doing "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer7_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer14_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 8 -->
+        <TextView
+            android:id="@+id/question8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8 (s). I felt that I was using a lot of nervous energy"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer14_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer14_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer14_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-
-            <!-- Question 15 -->
-            <TextView
-                android:id="@+id/question15"
+            <RadioButton
+                android:id="@+id/answer8_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="15 (a). I felt I was close to panic "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer8_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer15_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer15_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer15_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer15_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 16 -->
-            <TextView
-                android:id="@+id/question16"
+            <RadioButton
+                android:id="@+id/answer8_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="16 (d). I was unable to become enthusiastic about anything "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer8_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer16_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 9 -->
+        <TextView
+            android:id="@+id/question9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9 (a). I was worried about situations in which I might panic and make a fool of myself"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer16_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer16_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer16_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-
-            <!-- Question 17 -->
-            <TextView
-                android:id="@+id/question17"
+            <RadioButton
+                android:id="@+id/answer9_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="17 (d). I felt I wasn’t worth much as a person"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer9_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer17_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer17_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer17_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer17_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 18 -->
-            <TextView
-                android:id="@+id/question18"
+            <RadioButton
+                android:id="@+id/answer9_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="18 (s). I felt that I was rather touchy "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer9_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer18_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 10 -->
+        <TextView
+            android:id="@+id/question10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10 (d). I felt that I had nothing to look forward to"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer18_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer18_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer18_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 19 -->
-            <TextView
-                android:id="@+id/question19"
+            <RadioButton
+                android:id="@+id/answer10_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="19 (a). I was aware of the action of my heart in the absence of physical
-exertion (e.g. sense of heart rate increase, heart missing a beat) "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer10_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer19_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer19_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer19_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer19_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 20 -->
-            <TextView
-                android:id="@+id/question20"
+            <RadioButton
+                android:id="@+id/answer10_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="20 (a). I felt scared without any good reason "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer10_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer20_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
+        <!-- Question 11 -->
+        <TextView
+            android:id="@+id/question11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11 (s). I found myself getting agitated"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer20_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
+        <RadioGroup
+            android:id="@+id/answerGroup11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer20_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer20_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-            <!-- Question 21 -->
-            <TextView
-                android:id="@+id/question21"
+            <RadioButton
+                android:id="@+id/answer11_0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="21 (d). I felt that life was meaningless "
-                android:textSize="16sp"
-                android:layout_marginTop="16dp" />
+                android:text="0" />
 
-            <LinearLayout
+            <RadioButton
+                android:id="@+id/answer11_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp">
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer21_0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_0" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer21_1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_1"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer21_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_2"
-                    android:layout_marginStart="16dp" />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/answer21_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fabSize="mini"
-                    android:src="@drawable/ic_3"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <!-- Submit and Cancel Buttons -->
-            <LinearLayout
-                android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/answer11_2"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="32dp">
+                android:text="2"
+                android:layout_marginStart="16dp" />
 
-                <Button
-                    android:id="@+id/cancelButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cancel"
-                    android:layout_marginEnd="16dp" />
+            <RadioButton
+                android:id="@+id/answer11_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
 
-                <Button
-                    android:id="@+id/submitButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Submit" />
-            </LinearLayout>
+        <!-- Question 12 -->
+        <TextView
+            android:id="@+id/question12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12 (s). I found it difficult to relax"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-        </LinearLayout>
-    </ScrollView>
+        <RadioGroup
+            android:id="@+id/answerGroup12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
 
+            <RadioButton
+                android:id="@+id/answer12_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
 
+            <RadioButton
+                android:id="@+id/answer12_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
 
+            <RadioButton
+                android:id="@+id/answer12_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer12_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 13 -->
+        <TextView
+            android:id="@+id/question13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13 (d). I felt down-hearted and blue"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer13_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer13_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer13_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer13_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 14 -->
+        <TextView
+            android:id="@+id/question14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14 (a). I was intolerant of anything that kept me from getting on with what I was doing"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer14_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer14_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer14_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer14_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 15 -->
+        <TextView
+            android:id="@+id/question15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 (a). I felt I was close to panic"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer15_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer15_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer15_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer15_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 16 -->
+        <TextView
+            android:id="@+id/question16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16 (d). I was unable to become enthusiastic about anything"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer16_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer16_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer16_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer16_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 17 -->
+        <TextView
+            android:id="@+id/question17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17 (a). I felt I wasn’t worth much as a person"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer17_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer17_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer17_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer17_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 18 -->
+        <TextView
+            android:id="@+id/question18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18 (s). I felt that I was rather touchy"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer18_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer18_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer18_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer18_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 19 -->
+        <TextView
+            android:id="@+id/question19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="19 (a). I was aware of the action of my heart in the absence of physical exertion (e.g. sense of heart rate increase, heart missing a beat)"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer19_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer19_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer19_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer19_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 20 -->
+        <TextView
+            android:id="@+id/question20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20 (d). I felt scared without any good reason"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer20_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer20_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer20_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer20_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Question 21 -->
+        <TextView
+            android:id="@+id/question21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="21 (d). I felt that life was meaningless"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
+
+        <RadioGroup
+            android:id="@+id/answerGroup21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton
+                android:id="@+id/answer21_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0" />
+
+            <RadioButton
+                android:id="@+id/answer21_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer21_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:layout_marginStart="16dp" />
+
+            <RadioButton
+                android:id="@+id/answer21_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_marginStart="16dp" />
+        </RadioGroup>
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#F56A2E"
+            android:onClick="calculateScores" />
+
+    </LinearLayout>
+</ScrollView>
