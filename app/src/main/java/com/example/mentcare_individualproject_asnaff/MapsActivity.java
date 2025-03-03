@@ -49,7 +49,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         getWindow().setStatusBarColor(Color.parseColor("#54434E"));
 
         // Initialize Places
-        Places.initialize(getApplicationContext(), "AIzaSyBpIdrM1RQUU8cU0K-0GiwXh7KMYCVjx6I");
+        Places.initialize(getApplicationContext(), "\\");
         placesClient = Places.createClient(this);
 
         // Initialize FusedLocationProviderClient
@@ -144,7 +144,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         googlePlacesUrl.append("&type=health");
         googlePlacesUrl.append("&keyword=").append(nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=" + "AIzaSyBpIdrM1RQUU8cU0K-0GiwXh7KMYCVjx6I");
+        googlePlacesUrl.append("&key=" + "\\");
         return googlePlacesUrl.toString();
     }
 }
